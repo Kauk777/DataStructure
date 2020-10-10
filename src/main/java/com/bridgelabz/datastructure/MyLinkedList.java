@@ -49,21 +49,41 @@ public class MyLinkedList {
 		while(!tempNode.getNext().equals(tail))
 			tempNode=tempNode.getNext();
 		this.tail=tempNode;
-		tempNode=tempNode.getNext();
+		//tempNode=tempNode.getNext();
+		tempNode.setNext(null);
 		return tempNode;
 	}
 	
-	public void printMyNodes() {
-		StringBuffer myNodes=new StringBuffer("My nodes: ");
-		INode tempNode=head;
-		while(tempNode.getNext()!=null) {
-			myNodes.append(tempNode.getkey());
-			if(!tempNode.equals(tail))
-				myNodes.append("->");
-			tempNode=tempNode.getNext();
+	public<K> INode search(K nodeValue) {
+		INode currentNode=head;
+		int i=1;
+		if(this.head==null)
+			System.out.println("Linked Lst is empty");
+		else {
+			while(currentNode!=null) {
+				if(currentNode.getkey()==nodeValue)
+					return currentNode;
+				i++;
+				currentNode=currentNode.getNext();
+			}
 		}
-		myNodes.append(tempNode.getkey());
-		System.out.println(myNodes);
+		return currentNode;
+	}
+	
+	public void printMyNodes() {
+		if(this.head==null)
+			return;
+		INode node=head;
+		while(true) {
+			System.out.print(node.getkey());
+			if(node.getNext()!=null) {
+				System.out.print("->");
+				node=node.getNext();
+			}
+			else
+				break;
+		}
+		System.out.print("\n");
 	}
 
 }
