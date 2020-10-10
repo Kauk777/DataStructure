@@ -1,13 +1,13 @@
 package com.bridgelabz.datastructure;
 
 public class MyNode<K> {
-	
+
 	private K key;
 	private MyNode<K> next;
-	
+
 	public MyNode(K key) {
 		this.key = key;
-		this.next=null;
+		this.next = null;
 	}
 
 	public MyNode<K> getNext() {
@@ -18,5 +18,4 @@ public class MyNode<K> {
 		this.next = next;
 	}
 
-   
 }
