@@ -1,21 +1,33 @@
 package com.bridgelabz.datastructure;
 
-public class MyNode<K> {
+public class MyNode<K> implements INode<K> {
 
 	private K key;
-	private MyNode<K> next;
+	private INode<K> next;
 
 	public MyNode(K key) {
 		this.key = key;
 		this.next = null;
 	}
 
-	public MyNode<K> getNext() {
+	public INode<K> getNext() {
 		return next;
 	}
+	
+	@Override
+	public K getkey() {
+		return key;
+	}
 
-	public void setNext(MyNode<K> next) {
+	@Override
+	public void setKey(K key) {
+		this.key = key;
+	}
+
+	public void setNext(INode<K> next) {
 		this.next = next;
 	}
+
+	
 
 }
