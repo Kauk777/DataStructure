@@ -38,6 +38,16 @@ public class MyLinkedList {
 		newNode.setNext(tempNode);
 	}
 	
+	public<K> void insertAfterNode(K keyValue) {
+		INode prevNode=search(30);
+		if(prevNode==null) {
+			System.out.println("Previous node cannot be null");
+			return;
+		}
+		MyNode newNode=new MyNode(40);
+		insert(prevNode,newNode);
+	}
+	
 	public INode pop() {
 		INode tempNode=this.head;
 		this.head=head.getNext();
@@ -56,14 +66,12 @@ public class MyLinkedList {
 	
 	public<K> INode search(K nodeValue) {
 		INode currentNode=head;
-		int i=1;
 		if(this.head==null)
 			System.out.println("Linked Lst is empty");
 		else {
 			while(currentNode!=null) {
 				if(currentNode.getkey()==nodeValue)
 					return currentNode;
-				i++;
 				currentNode=currentNode.getNext();
 			}
 		}
