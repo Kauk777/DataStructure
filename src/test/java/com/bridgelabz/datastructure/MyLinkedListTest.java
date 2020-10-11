@@ -136,5 +136,23 @@ public class MyLinkedListTest {
 		boolean result = (int) tempNode.getkey() == 70;
 		Assert.assertTrue(result);
 	}
+	
+	@Test
+	public void givenListWhenSortedToLinkedListShouldPassLinkedListResult() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(40);
+		MyNode<Integer> myFourthNode = new MyNode<>(70);
+
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.append(myFirstNode);
+		myLinkedList.append(mySecondNode);
+		myLinkedList.append(myThirdNode);
+		myLinkedList.append(myFourthNode);
+		myLinkedList.sortedLinkedList();
+		myLinkedList.printMyNodes();
+		boolean result=(int)myLinkedList.head.getkey()==30;
+		Assert.assertTrue(result);
+	}
 
 }

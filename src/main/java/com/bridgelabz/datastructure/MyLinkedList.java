@@ -103,6 +103,25 @@ public class MyLinkedList {
 		System.out.println("Linked List size: "+count);
 	}
 	
+	public void sortedLinkedList() {
+		INode currentNode=head, indexNode=null;
+		int temp;
+		if(this.head==null)
+			return;
+		while(currentNode!=null) {
+			indexNode=currentNode.getNext();
+			while(indexNode!=null) {
+				if((int)currentNode.getkey()>(int)indexNode.getkey()) {
+					temp=(int)currentNode.getkey();
+					currentNode.setKey(indexNode.getkey());
+					indexNode.setKey(temp);
+				}
+				indexNode=indexNode.getNext();
+			}
+			currentNode=currentNode.getNext();
+		}
+	}
+	
 	public void printMyNodes() {
 		if(this.head==null)
 			return;
