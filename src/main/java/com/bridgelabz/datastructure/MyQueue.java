@@ -12,11 +12,16 @@ public class MyQueue {
 	}
 
 	public void printStack() {
-		myLinkedList.printMyNodes();	
+		myLinkedList.printMyNodes();
 	}
 
 	public INode front() {
 		return myLinkedList.head;
 	}
-	
+
+	public INode dequeue() {
+		return myLinkedList.pop();
+
+	}
+
 }

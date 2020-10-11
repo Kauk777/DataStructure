@@ -136,7 +136,7 @@ public class MyLinkedListTest {
 		boolean result = (int) tempNode.getkey() == 70;
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test
 	public void givenListWhenSortedToLinkedListShouldPassLinkedListResult() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -151,7 +151,7 @@ public class MyLinkedListTest {
 		myLinkedList.append(myFourthNode);
 		myLinkedList.sortedLinkedList();
 		myLinkedList.printMyNodes();
-		boolean result=(int)myLinkedList.head.getkey()==30;
+		boolean result = (int) myLinkedList.head.getkey() == 30;
 		Assert.assertTrue(result);
 	}
 
