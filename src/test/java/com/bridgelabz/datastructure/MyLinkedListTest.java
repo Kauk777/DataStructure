@@ -84,6 +84,7 @@ public class MyLinkedListTest {
 		boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.tail.equals(mySecondNode);
 		Assert.assertTrue(result);
 	}
+
 	@Test
 	public void given3NumbersWhenSearchedValueShouldPassLinkedListResult() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -98,8 +99,9 @@ public class MyLinkedListTest {
 		boolean result = myLinkedList.search(30).equals(mySecondNode);
 		Assert.assertTrue(result);
 	}
+
 	@Test
-	public<K> void given3NumbersWhenInsertedAfterShouldPassLinkedListResult() {
+	public <K> void given3NumbersWhenInsertedAfterShouldPassLinkedListResult() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
 		MyNode<Integer> mySecondNode = new MyNode<>(30);
 		MyNode<Integer> myFourthNode = new MyNode<>(70);
@@ -108,10 +110,30 @@ public class MyLinkedListTest {
 		myLinkedList.add(myFirstNode);
 		myLinkedList.append(myFourthNode);
 		myLinkedList.insert(myFirstNode, mySecondNode);
-		myLinkedList.insertAfterNode(40); //Inserting after node with key value 30
+		myLinkedList.insertAfterNode(30, 40); // Inserting 40 after node with key value 30
 		myLinkedList.printMyNodes();
-		INode tempNode=(myLinkedList.search(30)).getNext();
-		boolean result= (int)tempNode.getkey()==40;
+		INode tempNode = (myLinkedList.search(30)).getNext();
+		boolean result = (int) tempNode.getkey() == 40;
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public <K> void givenNumbersWhenDeletedKeyValueShouldPassLinkedListResult() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.add(myFirstNode);
+		myLinkedList.append(myThirdNode);
+		myLinkedList.insert(myFirstNode, mySecondNode);
+		myLinkedList.insertAfterNode(30, 40); // Inserting 40 after node with key value 30
+		myLinkedList.printMyNodes();
+		myLinkedList.deleteNode(40); // deleting node with key value 40
+		myLinkedList.size();
+		myLinkedList.printMyNodes();
+		INode tempNode = (myLinkedList.search(30)).getNext();
+		boolean result = (int) tempNode.getkey() == 70;
 		Assert.assertTrue(result);
 	}
 

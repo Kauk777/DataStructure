@@ -38,13 +38,13 @@ public class MyLinkedList {
 		newNode.setNext(tempNode);
 	}
 	
-	public<K> void insertAfterNode(K keyValue) {
-		INode prevNode=search(30);
+	public<K> void insertAfterNode(K prevValue, K keyValue) {
+		INode prevNode=search(prevValue);
 		if(prevNode==null) {
 			System.out.println("Previous node cannot be null");
 			return;
 		}
-		MyNode newNode=new MyNode(40);
+		MyNode<K> newNode=new MyNode<>(keyValue);
 		insert(prevNode,newNode);
 	}
 	
@@ -64,6 +64,21 @@ public class MyLinkedList {
 		return tempNode;
 	}
 	
+	public<K> void deleteNode(K keyValue) {
+		INode tempNode=head, prevNode=null;
+		if(tempNode!=null && tempNode.getkey()==keyValue) {
+			this.head=tempNode.getNext();
+			return;
+		}
+		while(tempNode!=null && tempNode.getkey()!=keyValue) {
+			prevNode=tempNode;
+			tempNode=tempNode.getNext();
+		}
+		if(tempNode.getkey()==null) // If key is not present in linked list
+			return;
+		prevNode.setNext(tempNode.getNext());
+	}
+	
 	public<K> INode search(K nodeValue) {
 		INode currentNode=head;
 		if(this.head==null)
@@ -76,6 +91,16 @@ public class MyLinkedList {
 			}
 		}
 		return currentNode;
+	}
+	
+	public void size() {
+		INode tempNode=head;
+		int count=0;
+		while(tempNode!=null) {
+			count++;
+			tempNode=tempNode.getNext();
+		}
+		System.out.println("Linked List size: "+count);
 	}
 	
 	public void printMyNodes() {
