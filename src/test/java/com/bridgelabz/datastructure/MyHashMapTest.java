@@ -7,7 +7,7 @@ public class MyHashMapTest {
 
 	@Test
 	public void givenASentence_WhenWordsAreAdded_Should_ReturnFrequency() {
-		String sentence = "To be not to be";
+		String sentence = "To be or not to be";
 		MyHashMap<String, Integer> myHashMap = new MyHashMap<>();
 		String[] words = sentence.toLowerCase().split(" ");
 		for (String word : words) {
@@ -22,5 +22,5 @@ public class MyHashMapTest {
 		System.out.println(myHashMap);
 		Assert.assertEquals(2, frequency);
 	}
-
+	
 }
