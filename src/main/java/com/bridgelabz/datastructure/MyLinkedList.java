@@ -1,6 +1,6 @@
 package com.bridgelabz.datastructure;
 
-public class MyLinkedList {
+public class MyLinkedList<K> {
 	public INode head;
 	public INode tail;
 
@@ -79,12 +79,12 @@ public class MyLinkedList {
 	}
 
 	public <K> INode search(K nodeValue) {
-		INode currentNode = head;
+		INode<K> currentNode = head;
 		if (this.head == null)
-			System.out.println("Linked Lst is empty");
+			return null;
 		else {
 			while (currentNode != null) {
-				if (currentNode.getkey() == nodeValue)
+				if (currentNode.getkey().equals(nodeValue))
 					return currentNode;
 				currentNode = currentNode.getNext();
 			}
@@ -134,6 +134,11 @@ public class MyLinkedList {
 				break;
 		}
 		System.out.print("\n");
+	}
+	
+	@Override
+	public String toString() {
+		return "MyLinkedListNodes{" +head+'}';
 	}
 
 }
