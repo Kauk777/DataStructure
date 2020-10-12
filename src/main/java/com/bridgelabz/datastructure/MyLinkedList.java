@@ -65,11 +65,11 @@ public class MyLinkedList<K> {
 
 	public <K> void deleteNode(K keyValue) {
 		INode tempNode = head, prevNode = null;
-		if (tempNode != null && tempNode.getkey() == keyValue) {
+		if (tempNode != null && tempNode.getkey().equals(keyValue)) {
 			this.head = tempNode.getNext();
 			return;
 		}
-		while (tempNode != null && tempNode.getkey() != keyValue) {
+		while (tempNode != null && (!tempNode.getkey().equals(keyValue))) {
 			prevNode = tempNode;
 			tempNode = tempNode.getNext();
 		}

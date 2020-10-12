@@ -43,6 +43,16 @@ public class MyLinkedHashMap<K, V> {
 			myMapNode.setValue(value);
 		}
 	}
+	
+	public void remove(K key) {
+		int index = this.getBucketIndex(key);
+		MyLinkedList<K> myLinkedList=this.myBucketArray.get(index);
+		if(myLinkedList!=null) {
+			myLinkedList = new MyLinkedList<>();
+			myLinkedList.deleteNode(key);
+		}
+		
+	}
 
 	@Override
 	public String toString() {
