@@ -22,7 +22,7 @@ public class MyLinkedHashMapTest {
 		System.out.println(myLinkedHashMap);
 		Assert.assertEquals(3, frequency);
 	}
-	
+
 	@Test
 	public void givenASentence_WhenAvoidableDeleted_Should_ReturnFrequency() {
 		String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situation";
@@ -36,10 +36,9 @@ public class MyLinkedHashMapTest {
 				value += 1;
 			myLinkedHashMap.add(word, value);
 		}
-		myLinkedHashMap.remove("avoidable");
-		int frequency = myLinkedHashMap.get("avoidable");
+		boolean result = myLinkedHashMap.remove("avoidable");
 		System.out.println(myLinkedHashMap);
-		Assert.assertEquals(null, frequency);
+		Assert.assertTrue(result);
 	}
 
 }

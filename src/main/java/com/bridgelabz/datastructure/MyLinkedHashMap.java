@@ -43,15 +43,20 @@ public class MyLinkedHashMap<K, V> {
 			myMapNode.setValue(value);
 		}
 	}
-	
-	public void remove(K key) {
+
+	public boolean remove(K key) {
 		int index = this.getBucketIndex(key);
-		MyLinkedList<K> myLinkedList=this.myBucketArray.get(index);
-		if(myLinkedList!=null) {
-			myLinkedList = new MyLinkedList<>();
-			myLinkedList.deleteNode(key);
+		MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
+		if (myLinkedList == null) {
+			return false;
 		}
-		
+		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) myLinkedList.search(key);
+		if(myMapNode==null)
+			return false;
+		else {
+			myLinkedList.deleteNode(key);
+			return true;
+		}
 	}
 
 	@Override
